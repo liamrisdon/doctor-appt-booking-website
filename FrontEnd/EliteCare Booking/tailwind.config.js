@@ -10,8 +10,9 @@ export default {
         yellow: "#f59e0b",
         purple: "#7c3aed",
         blue: "#0284c7",
-        heading: "#1e293b",
-        textColor: "#6b7280"
+        heading: "#94a3b8",
+        main: "#d1d5db",
+        textColor: "#111827"
       },
       boxShadow: {
         panelShadow: "rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;",

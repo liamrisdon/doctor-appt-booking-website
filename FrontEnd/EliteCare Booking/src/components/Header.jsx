@@ -46,7 +46,7 @@ const Header = () => {
     const toggleMenu = () => menuRef.current.classList.toggle('show_menu')
 
     return (
-        <header className="header flex bg-gray-100 p-4" ref={headerRef}>
+        <header className="header flex bg-heading p-4" ref={headerRef}>
             <div className="container flex items-center justify-between space-x-8">
 
                 <img className="object-scale-down h-20 w-60 mix-blend-multiply" src={logo} alt="" />
