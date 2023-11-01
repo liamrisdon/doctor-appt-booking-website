@@ -1,8 +1,12 @@
-import React from 'react'
+import ServicesList from '../components/ServicesList';
 
 const Services = () => {
     return (
-        <div>Services</div>
+        <section>
+            <div className="container">
+                <ServicesList />
+            </div>
+        </section>
     )
 }
 

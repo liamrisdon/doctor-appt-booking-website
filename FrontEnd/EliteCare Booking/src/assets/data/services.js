@@ -30,7 +30,7 @@ export const services = [
         textColor: "#FEB60D",
     },
     {
-        name: "Burn Treatment",
+        name: "General Enquiries",
         desc: "Eiusmod dolore irure deserunt fugiat fugiat elit irure tempor. Voluptate occaecat amet ullamco non. Officia deserunt.",
         bgColor: "rgba(151, 113, 255, .2)",
         textColor: "#9771FF",

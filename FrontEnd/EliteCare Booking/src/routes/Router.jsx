@@ -9,6 +9,7 @@ import SignUpPage from '../pages/SignUpPage.jsx';
 const Router = () => {
     return <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="home" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/doctors" element={<DoctorsPage />} />
         <Route path="/contact" element={<ContactPage />} />
