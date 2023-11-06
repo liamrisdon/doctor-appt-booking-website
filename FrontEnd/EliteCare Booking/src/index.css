@@ -28,6 +28,15 @@
     .main_section {
         @apply bg-main bg-no-repeat bg-center bg-cover
     }
+
+    .form_label {
+        @apply text-textColor font-semibold text-[16px] leading-7 mb-2;
+    }
+
+    .form_input {
+        @apply w-full px-4 py-3 border border-solid border-[#0066ff61] focus:outline-none focus:border-primary text-[16px] leading-7 text-heading placeholder:text-textColor cursor-pointer rounded-md;
+    }
+
 }
 
 @media only screen and (max-width:1024px) {
