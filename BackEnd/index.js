@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRouter from "./routes/authRouter.js";
+import userRouter from "./routes/userRouter.js";
 
 dotenv.config();
 const app = express();
@@ -40,7 +41,8 @@ const connectDB = async () => {
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
-app.use('/api/v1/authRouter', authRouter)
+app.use('/api/v1/authRouter', authRouter);
+app.use('/api/v1/userRouter', userRouter);
 
 app.listen(port, () => {
     connectDB();
