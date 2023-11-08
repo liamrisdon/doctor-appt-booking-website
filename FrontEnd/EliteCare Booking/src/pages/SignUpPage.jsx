@@ -1,7 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { BASE_URL } from "../config.js";
+import { toast } from "react-toastify";
+import HashLoader from 'react-spinners/HashLoader';
 
 const SignUpPage = () => {
+
+    const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
         email: "",
@@ -10,12 +15,43 @@ const SignUpPage = () => {
         gender: "",
     });
 
+    const navigate = useNavigate()
+
+
+
     const handleInputChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const submitHandler = async e => {
+        console.log(formData);
         e.preventDefault();
+        setLoading(true);
+
+        try {
+            const res = await fetch(`${BASE_URL}/authRouter/register`, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+
+            const { message } = await res.json();
+
+            if (!res.ok) {
+                throw new Error(message);
+            }
+
+            setLoading(false);
+            toast.success(message);
+            navigate('/login');
+
+        } catch (e) {
+            toast.error(e.message);
+            setLoading(false);
+
+        }
     }
 
     return <>
@@ -51,7 +87,7 @@ const SignUpPage = () => {
                             </label>
 
                             <div className="mt-7">
-                                <button type="submit" className="w-full bg-primary text-white text-[18px] leading-[30px] rounded-lg px-4 py-3">Sign Up</button>
+                                <button disabled={loading && true} type="submit" className="w-full bg-primary text-white text-[18px] leading-[30px] rounded-lg px-4 py-3">{loading ? <HashLoader size={35} color="#ffffff" /> : 'Sign Up'}</button>
                             </div>
 
                             <p className="mt-5 text-textColor text-center"> Already have an Account? <Link to="/login" className="text-primary font-medium ml-1">Login here</Link></p>

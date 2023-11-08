@@ -22,3 +22,4 @@ NodeMailer,
 - Further improvements to UI/FrontEnd.
 -^ Could add FAQ section to homepage.
 -^^ Could add individual doctors pages - utilise the extended Doctors schema, could add reviews of each doctor
+- Deploy to netlify 
