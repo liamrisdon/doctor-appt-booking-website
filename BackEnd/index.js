@@ -41,8 +41,8 @@ const connectDB = async () => {
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
-app.use('/api/v1/authRouter', authRouter);
-app.use('/api/v1/userRouter', userRouter);
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/users', userRouter);
 
 app.listen(port, () => {
     connectDB();

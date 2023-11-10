@@ -1,14 +1,13 @@
-import React from 'react';
 
 import Header from "../components/Header.jsx";
 import Footer from '../components/Footer.jsx';
-import Routers from "../routes/Router.jsx";
+import Routes from "../routes/Router.jsx";
 
 const Layout = () => {
     return <>
         <Header />
         <main>
-            <Routers />
+            <Routes />
         </main>
         <Footer />
     </>

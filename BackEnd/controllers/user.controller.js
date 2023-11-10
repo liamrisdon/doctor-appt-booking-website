@@ -1,4 +1,5 @@
 import User from "../models/UserSchema.js";
+import Booking from "../models/BookingSchema.js";
 
 // reqs checked with postman
 
@@ -70,3 +71,39 @@ export const getAllUsers = async (req, res) => {
 
     }
 }
+
+export const getUserProfile = async (req, res) => {
+    const userId = req.userId
+
+    try {
+        const user = await User.findById(userId)
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' })
+        }
+
+        const { password, ...rest } = user._doc;
+        // const appointments = await Booking.find({ user: userId })
+
+        res.status(200).json({ success: true, message: "Profile Info received", data: { ...rest } }); //appointments
+    } catch (e) {
+
+        console.log(e.message);
+
+        res.status(500).json({ success: false, message: "Something went wrong, cannot retrieve profile info" })
+
+    }
+}
+
+export const getMyAppointments = async (req, res) => {
+
+    try {
+        const bookings = await Booking.find({ user: req.userId });
+
+        res.status(200).json({ success: true, message: "Appointments received", data: bookings })
+
+    } catch (e) {
+        res.status(500).json({ success: false, message: "Something went wrong, cannot retrieve appointments" })
+    }
+}
+

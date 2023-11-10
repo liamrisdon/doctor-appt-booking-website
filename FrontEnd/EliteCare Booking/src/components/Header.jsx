@@ -76,7 +76,7 @@ const Header = () => {
                 <div className="flex items-center space-x-8">
 
                     {token && user ? (<div >
-                        <Link to='/'>
+                        <Link to='/users/profile/me'>
                             <figure className="w-10 h-10 rounded-full cursor-pointer">
                                 <img src={avatar} className="w-full h-full rounded-full" alt="" />
                             </figure>

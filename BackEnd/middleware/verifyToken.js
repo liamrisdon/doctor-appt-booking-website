@@ -5,6 +5,7 @@ export const authenticate = async (req, res, next) => {
 
     // get token from the headers
     const authToken = req.headers.authorization
+    // console.log(req.headers, "REQ.HEADERS")
 
     // check token exists
     if (!authToken || !authToken.startsWith('Bearer ')) {
@@ -17,6 +18,8 @@ export const authenticate = async (req, res, next) => {
         const token = authToken.split(" ")[1];
 
         // verify token
+
+        // console.log(token, 'JWT token');
         const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
         req.userId = decoded.id;
